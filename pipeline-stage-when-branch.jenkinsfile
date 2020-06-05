@@ -1,0 +1,26 @@
+pipeline{
+    agent {
+            label "centos"
+        }
+    options { 
+        timestamps () 
+        }
+    stages{
+        stage("Master") {
+            when {
+                branch "master"
+            }
+            steps {
+                echo "Use master branch"
+            }
+        }
+        stage("Develop") {
+            when {
+                branch "develop"
+            }
+            steps {
+                echo "Use develop branch"
+            }
+        }        
+    }
+}
